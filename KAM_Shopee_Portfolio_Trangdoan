@@ -1,0 +1,722 @@
+bash
+
+python3 << 'PYEOF'
+import base64
+
+def b64img(path, mime):
+    with open(path, 'rb') as f:
+        return f"data:{mime};base64,{base64.b64encode(f.read()).decode()}"
+
+u = "/mnt/user-data/uploads/"
+
+avatar   = b64img(u+"b687125115fd9ba3c2ec__1_.jpg",                                           "image/jpeg")
+shopee   = b64img(u+"ca5d12864c12916c05640b36e47ac5c9.jpg",                                   "image/jpeg")
+breaking = b64img(u+"Breaking_Bad___HP_Crossover.png",                                        "image/jpeg")
+stevie   = b64img(u+"Stevie_Nicks_Legend_Tee.png",                                            "image/jpeg")
+july4    = b64img(u+"4th_of_July_Couples_Tee.png",                                            "image/jpeg")
+tk140    = b64img(u+"Tiktokshop-GMV_Dashboard___Apr_Dec_2025____140_276.png",                 "image/jpeg")
+tk43     = b64img(u+"Tiktokshop-December_2025____43_342____79_54_.png",                       "image/jpeg")
+amz_snap = b64img(u+"Sales_Snapshot___Jan_Apr_2026____113_598.jpg",                           "image/jpeg")
+amz_ppc  = b64img(u+"PPC_Performance___Q1_2026____78_484_Sales.jpg",                          "image/jpeg")
+amz_asin = b64img(u+"ASIN_Business_Report___Top_5_Products.jpg",                              "image/jpeg")
+amz_rank = b64img(u+"Best_Sellers_Rank____27_Handmade_Clothing.jpg",                          "image/jpeg")
+
+html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doan Thu Trang — KAM Portfolio · Shopee</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{{
+  --bg:#fff8f5;
+  --bg2:#ffffff;
+  --bg3:#fff2ec;
+  --bg4:#fde8de;
+  --border:#f0d4c8;
+  --border2:#e8c4b4;
+  --text:#2d1a10;
+  --muted:#8a6050;
+  --accent:#ee4d2d;
+  --accent2:#ff6b35;
+  --accent3:#d63a1f;
+  --light:#fff;
+  --shadow:rgba(238,77,45,0.10);
+}}
+*{{margin:0;padding:0;box-sizing:border-box;}}
+body{{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Source Serif 4','Times New Roman',Georgia,serif;
+  font-size:15px;
+  line-height:1.75;
+  max-width:900px;
+  margin:0 auto;
+  padding:0 28px 80px;
+}}
+
+/* ── HERO ── */
+.hero{{
+  background:linear-gradient(135deg,#ee4d2d 0%,#ff6b35 50%,#ff8c5a 100%);
+  border-radius:20px;
+  padding:48px 44px 44px;
+  margin-top:32px;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 8px 40px rgba(238,77,45,0.25);
+}}
+.hero::before{{
+  content:'';
+  position:absolute;
+  top:-60px;right:-60px;
+  width:240px;height:240px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.08);
+}}
+.hero::after{{
+  content:'';
+  position:absolute;
+  bottom:-40px;left:30%;
+  width:160px;height:160px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.05);
+}}
+.hero-top{{display:flex;align-items:flex-start;gap:28px;margin-bottom:32px;flex-wrap:wrap;position:relative;z-index:1;}}
+.avatar-img{{
+  width:100px;height:100px;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center top;
+  border:3px solid rgba(255,255,255,0.9);
+  box-shadow:0 4px 16px rgba(0,0,0,0.2);
+  flex-shrink:0;
+}}
+.hero-text{{flex:1;min-width:220px;}}
+.hero-eyebrow{{
+  font-family:'Source Serif 4',serif;
+  font-size:11px;
+  font-weight:300;
+  letter-spacing:0.18em;
+  color:rgba(255,255,255,0.85);
+  text-transform:uppercase;
+  margin-bottom:10px;
+}}
+.hero h1{{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,5.5vw,52px);
+  font-weight:700;
+  line-height:1.05;
+  letter-spacing:-0.01em;
+  color:#fff;
+  margin-bottom:8px;
+}}
+.hero h1 em{{font-style:italic;color:rgba(255,255,255,0.9);}}
+.hero-sub{{font-size:14px;color:rgba(255,255,255,0.85);max-width:480px;margin-bottom:14px;font-weight:300;}}
+
+/* Shopee apply badge */
+.shopee-apply-badge{{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(255,255,255,0.18);
+  border:1px solid rgba(255,255,255,0.4);
+  border-radius:12px;
+  padding:8px 16px;
+  backdrop-filter:blur(4px);
+}}
+.shopee-apply-badge img{{
+  height:28px;
+  border-radius:6px;
+  object-fit:contain;
+}}
+.shopee-apply-badge span{{
+  font-family:'Source Serif 4',serif;
+  font-size:12px;
+  color:#fff;
+  font-weight:600;
+  letter-spacing:0.05em;
+}}
+
+/* Hero numbers */
+.hero-numbers{{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:rgba(255,255,255,0.2);
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:14px;
+  overflow:hidden;
+  position:relative;
+  z-index:1;
+}}
+.hero-num{{
+  background:rgba(255,255,255,0.12);
+  padding:18px 20px;
+  transition:background 0.2s;
+  backdrop-filter:blur(4px);
+}}
+.hero-num:hover{{background:rgba(255,255,255,0.20);}}
+.hero-num .val{{
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  font-weight:700;
+  color:#fff;
+  line-height:1;
+  margin-bottom:4px;
+}}
+.hero-num .label{{
+  font-family:'Source Serif 4',serif;
+  font-size:10px;
+  color:rgba(255,255,255,0.75);
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  font-weight:300;
+}}
+
+/* ── SECTION ── */
+section{{padding:52px 0 0;}}
+.section-label{{
+  font-family:'Source Serif 4',serif;
+  font-size:10px;
+  letter-spacing:0.22em;
+  color:var(--accent);
+  text-transform:uppercase;
+  font-weight:600;
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}}
+.section-label::after{{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--border2),transparent);}}
+
+/* ── FIT GRID ── */
+.fit-grid{{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}}
+.fit-item{{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-left:3px solid var(--accent);
+  border-radius:0 12px 12px 0;
+  padding:18px 20px;
+  box-shadow:0 2px 12px var(--shadow);
+  transition:transform 0.2s,box-shadow 0.2s;
+}}
+.fit-item:hover{{transform:translateY(-2px);box-shadow:0 6px 20px var(--shadow);}}
+.fit-item .fi-label{{
+  font-family:'Source Serif 4',serif;
+  font-size:10px;
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  font-weight:600;
+  margin-bottom:8px;
+}}
+.fit-item .fi-text{{font-size:13px;color:var(--muted);line-height:1.7;}}
+.fit-item .fi-text strong{{color:var(--text);font-weight:600;}}
+
+/* ── ABOUT ── */
+.about-text{{
+  font-size:15.5px;
+  color:var(--text);
+  max-width:660px;
+  border-left:4px solid var(--accent);
+  padding-left:22px;
+  line-height:1.9;
+  font-style:italic;
+}}
+.about-text strong{{font-style:normal;font-weight:600;}}
+
+/* ── TIMELINE ── */
+.timeline{{display:flex;flex-direction:column;border-left:2px solid var(--border2);padding-left:24px;margin-top:8px;}}
+.tl-item{{position:relative;padding-bottom:28px;}}
+.tl-item::before{{
+  content:'';
+  position:absolute;
+  left:-29px;top:6px;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--accent);
+  border:3px solid var(--bg);
+  box-shadow:0 0 0 2px var(--accent);
+}}
+.tl-date{{font-family:'Source Serif 4',serif;font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:0.12em;font-weight:600;margin-bottom:4px;}}
+.tl-role{{font-family:'Playfair Display',serif;font-weight:600;font-size:15px;margin-bottom:4px;color:var(--text);}}
+.tl-desc{{font-size:13px;color:var(--muted);}}
+
+/* ── PLATFORM GRID ── */
+.platform-grid{{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}}
+.platform-card{{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:26px;
+  transition:transform 0.2s,box-shadow 0.2s;
+  box-shadow:0 2px 12px var(--shadow);
+}}
+.platform-card:hover{{transform:translateY(-2px);box-shadow:0 8px 24px var(--shadow);}}
+.platform-card.ops{{border-top:3px solid var(--accent);}}
+.platform-card.biz{{border-top:3px solid var(--accent2);}}
+.platform-name{{
+  font-family:'Source Serif 4',serif;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
+  color:var(--accent);
+}}
+.dot{{width:8px;height:8px;border-radius:50%;background:var(--accent);}}
+.dot2{{width:8px;height:8px;border-radius:50%;background:var(--accent2);}}
+.skill-list{{list-style:none;}}
+.skill-list li{{
+  font-size:13px;color:var(--muted);
+  padding:6px 0;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;gap:8px;
+}}
+.skill-list li:last-child{{border-bottom:none;}}
+.skill-list li::before{{
+  content:'›';
+  color:var(--accent);
+  font-size:14px;
+  margin-top:0;
+  flex-shrink:0;
+  font-weight:600;
+}}
+
+/* ── CASE ── */
+.case{{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:32px;
+  margin-top:18px;
+  box-shadow:0 2px 16px var(--shadow);
+  transition:box-shadow 0.2s;
+}}
+.case:hover{{box-shadow:0 8px 32px var(--shadow);}}
+.case-header{{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:10px;}}
+.case-title{{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;line-height:1.2;color:var(--text);}}
+.case-tag{{
+  font-family:'Source Serif 4',serif;
+  font-size:10px;letter-spacing:0.1em;
+  padding:4px 12px;border-radius:20px;
+  white-space:nowrap;font-weight:600;
+  text-transform:uppercase;
+}}
+.tag-tiktok{{background:rgba(255,45,85,0.08);color:#ff2d55;border:1px solid rgba(255,45,85,0.25);}}
+.tag-amazon{{background:rgba(255,153,0,0.08);color:#cc7a00;border:1px solid rgba(255,153,0,0.25);}}
+.case-context{{font-size:12px;color:var(--muted);margin-bottom:18px;font-style:italic;}}
+
+.metrics-row{{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;}}
+.metric{{
+  background:linear-gradient(135deg,#fff8f5,#fde8de);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px 16px;
+  min-width:100px;flex:1;
+}}
+.metric .m-val{{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:700;
+  color:var(--accent);line-height:1;margin-bottom:3px;
+}}
+.metric .m-val.orange{{color:#cc7a00;}}
+.metric .m-val.cyan{{color:#0891b2;}}
+.metric .m-val.red{{color:#e11d48;}}
+.metric .m-label{{font-family:'Source Serif 4',serif;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;}}
+
+.prod-grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;}}
+.prod-img{{width:100%;border-radius:10px;border:1px solid var(--border);object-fit:cover;aspect-ratio:3/4;display:block;box-shadow:0 2px 8px rgba(0,0,0,0.06);}}
+.img-row{{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;}}
+.img-cell{{display:flex;flex-direction:column;gap:6px;}}
+.dash-img{{width:100%;border-radius:10px;border:1px solid var(--border);display:block;box-shadow:0 2px 8px rgba(0,0,0,0.06);}}
+.img-caption{{
+  font-family:'Source Serif 4',serif;
+  font-size:10px;color:var(--muted);
+  text-align:center;letter-spacing:0.06em;
+  font-style:italic;
+}}
+
+.case-details{{font-size:13.5px;color:var(--muted);line-height:1.8;margin-top:16px;}}
+.case-details strong{{color:var(--text);font-weight:600;}}
+
+.shopee-relevance{{
+  background:linear-gradient(135deg,rgba(238,77,45,0.06),rgba(238,77,45,0.03));
+  border:1px solid rgba(238,77,45,0.2);
+  border-left:3px solid var(--accent);
+  border-radius:0 10px 10px 0;
+  padding:14px 18px;
+  margin-top:16px;
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.7;
+}}
+.shopee-relevance strong{{color:var(--accent);font-weight:600;}}
+
+/* ── SERVICES ── */
+.services-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:8px;}}
+.service-item{{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:14px 18px;
+  font-size:13px;color:var(--muted);
+  display:flex;gap:10px;align-items:flex-start;
+  transition:background 0.2s,transform 0.2s;
+  box-shadow:0 1px 6px var(--shadow);
+}}
+.service-item:hover{{background:var(--bg3);transform:translateY(-1px);color:var(--text);}}
+.service-item .check{{color:var(--accent);font-size:14px;margin-top:1px;flex-shrink:0;font-weight:700;}}
+
+/* ── TOOLS ── */
+.tools-wrap{{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}}
+.tool-badge{{
+  font-family:'Source Serif 4',serif;
+  font-size:12px;
+  padding:7px 14px;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:20px;
+  color:var(--muted);
+  transition:all 0.2s;
+  box-shadow:0 1px 4px var(--shadow);
+}}
+.tool-badge:hover{{color:var(--accent);border-color:var(--accent);background:var(--bg3);}}
+
+/* ── CONTACT ── */
+.contact-block{{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:32px;
+  margin-top:8px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  box-shadow:0 4px 20px var(--shadow);
+}}
+.contact-item{{display:flex;flex-direction:column;gap:4px;}}
+.c-label{{font-family:'Source Serif 4',serif;font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:0.14em;font-weight:600;}}
+.c-val{{font-size:14px;color:var(--text);}}
+.c-val a{{color:var(--accent);text-decoration:none;font-weight:600;}}
+
+.divider{{height:1px;background:linear-gradient(to right,transparent,var(--border2),transparent);margin:48px 0 0;}}
+
+.footer{{
+  text-align:center;
+  padding:28px 0;
+  font-family:'Source Serif 4',serif;
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+}}
+
+@media(max-width:600px){{
+  .platform-grid,.fit-grid,.prod-grid,.img-row,.hero-numbers{{grid-template-columns:1fr;}}
+  .contact-block{{grid-template-columns:1fr;}}
+  .hero{{padding:32px 24px;}}
+  .hero-top{{gap:16px;}}
+}}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-top">
+    <img src="{avatar}" class="avatar-img" alt="Doan Thu Trang">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Portfolio · Key Account Management (New Seller Flow) Associate</div>
+      <h1>Doan Thu <em>Trang</em></h1>
+      <p class="hero-sub">E-commerce Operator · 2+ years growing sellers on TikTok Shop US & Amazon · Ready to help new Shopee sellers launch, scale, and hit their first GMV milestones.</p>
+      <div class="shopee-apply-badge">
+        <img src="{shopee}" alt="Shopee">
+        <span>Applying to Shopee Vietnam · 2026</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-numbers">
+    <div class="hero-num"><div class="val">$540K+</div><div class="label">Total GMV Managed</div></div>
+    <div class="hero-num"><div class="val">7–8×</div><div class="label">TikTok Ads ROI</div></div>
+    <div class="hero-num"><div class="val">#27</div><div class="label">Amazon Category Rank</div></div>
+  </div>
+</div>
+
+<!-- ── WHY I FIT ── -->
+<section>
+  <div class="section-label">Why I Fit This Role</div>
+  <div class="fit-grid">
+    <div class="fit-item">
+      <div class="fi-label">JD: Train & support sellers to grow revenue</div>
+      <div class="fi-text">I've been on the <strong>seller side</strong> — running stores, optimizing listings, managing ads, and troubleshooting operations. I know exactly what new sellers struggle with and how to fix it.</div>
+    </div>
+    <div class="fit-item">
+      <div class="fi-label">JD: Market insights & competitor dynamics</div>
+      <div class="fi-text">Conducted ongoing <strong>product & trend research</strong> across TikTok Shop US and Amazon — identifying winning niches, analyzing competitor pricing, and acting on platform data.</div>
+    </div>
+    <div class="fit-item">
+      <div class="fi-label">JD: Merchandising & promotion proposals</div>
+      <div class="fi-text">Designed and executed <strong>campaign strategies</strong> (Win campaigns, GMV Max, seasonal promotions) that drove $60K, $50K, and $30K GMV per campaign with 7–8× ad ROI.</div>
+    </div>
+    <div class="fit-item">
+      <div class="fi-label">JD: Monitor performance & prevent risks</div>
+      <div class="fi-text">Maintained <strong>100% account health</strong> across all stores — managing policy compliance, return rates, and platform risk while scaling revenue simultaneously.</div>
+    </div>
+    <div class="fit-item">
+      <div class="fi-label">JD: Negotiate & onboard new sellers</div>
+      <div class="fi-text">Built relationships with <strong>suppliers, affiliates, and media partners</strong> — coordinating cross-party onboarding from product sourcing to first sales. Strong in stakeholder communication (EN/VN).</div>
+    </div>
+    <div class="fit-item">
+      <div class="fi-label">JD: Data-driven planning & KPI ownership</div>
+      <div class="fi-text">Used <strong>Excel, platform dashboards, and ad analytics</strong> daily to track GMV, ACOS, conversion rates, and order velocity — adjusting strategy based on data, not guesswork.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section>
+  <div class="section-label">About</div>
+  <p class="about-text">
+    I'm an e-commerce operator who has run stores end-to-end — not just managed spreadsheets, but actually built systems that generate revenue. My experience spans <strong>TikTok Shop US</strong> (POD & Dropshipping, $400K/year) and <strong>Amazon</strong> (FBM/FBA, $113K+ ordered sales in Q1 2026).<br><br>
+    What makes me suitable for KAM at Shopee: I understand the seller journey from the inside. I know what it takes to go live, optimize a listing, run a profitable campaign, and maintain platform health under pressure. I can translate that operational knowledge into guidance that helps new Shopee sellers grow faster.
+  </p>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section>
+  <div class="section-label">Experience</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">Jan 2026 – Present</div>
+      <div class="tl-role">Amazon & Etsy Specialist · Toys & Gifts Niche</div>
+      <div class="tl-desc">FBM/FBA seller — product research, listing SEO, PPC (SP/SB/SD), A+ content, account health · $113K+ ordered sales · #27 category rank</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">May 2024 – Dec 2025</div>
+      <div class="tl-role">TikTok Shop Operations Specialist · Fashion & Home Decor</div>
+      <div class="tl-desc">Multi-store operator · $400K annual revenue · POD + Dropshipping · Ads ROI 7–8× · Affiliate & KOC network management</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Aug 2023 – May 2024</div>
+      <div class="tl-role">Sales Representative</div>
+      <div class="tl-desc">Functional food products · CRM · Up to 200M VND/month · Consultative selling & stakeholder communication</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section>
+  <div class="section-label">Skills Relevant to Shopee KAM</div>
+  <div class="platform-grid">
+    <div class="platform-card ops">
+      <div class="platform-name"><span class="dot"></span>Seller Operations Knowledge</div>
+      <ul class="skill-list">
+        <li>Store setup, listing creation & optimization</li>
+        <li>Product research — POD, Dropshipping, FBA</li>
+        <li>Promotional campaign design & execution</li>
+        <li>Pricing strategy & market positioning</li>
+        <li>Order management & return rate control</li>
+        <li>Platform policy compliance & account health</li>
+        <li>Affiliate / KOC outreach & management</li>
+        <li>International customer care (English)</li>
+      </ul>
+    </div>
+    <div class="platform-card biz">
+      <div class="platform-name"><span class="dot2"></span>Business Advisor Skills</div>
+      <ul class="skill-list">
+        <li>Data analysis: GMV, CVR, ACOS, ROAS tracking</li>
+        <li>Market & competitor research (Helium 10, Jungle Scout)</li>
+        <li>Seller communication & relationship building</li>
+        <li>Performance monitoring & risk detection</li>
+        <li>Merchandising & promotion planning</li>
+        <li>Cross-functional coordination (media, logistics)</li>
+        <li>Excel / MOS for reporting & target tracking</li>
+        <li>Presentation & meeting facilitation (EN/VN)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── CASE STUDIES ── -->
+<section>
+  <div class="section-label">Proven Results</div>
+
+  <div class="case">
+    <div class="case-header">
+      <div class="case-title">TikTok Shop POD — T-shirt Win Campaigns</div>
+      <span class="case-tag tag-tiktok">TikTok Shop · POD · Campaign</span>
+    </div>
+    <div class="case-context">US Market · Fashion Niche · 2024–2025</div>
+    <div class="metrics-row">
+      <div class="metric"><div class="m-val red">$60K</div><div class="m-label">Campaign #1 GMV</div></div>
+      <div class="metric"><div class="m-val red">$50K</div><div class="m-label">Campaign #2 GMV</div></div>
+      <div class="metric"><div class="m-val red">$30K</div><div class="m-label">Campaign #3 GMV</div></div>
+      <div class="metric"><div class="m-val">7–8×</div><div class="m-label">Avg Ads ROI</div></div>
+    </div>
+    <div class="prod-grid">
+      <div><img src="{breaking}" class="prod-img" alt="Breaking Bad HP"><div class="img-caption">Breaking Bad × HP Crossover</div></div>
+      <div><img src="{stevie}" class="prod-img" alt="Stevie Nicks"><div class="img-caption">Stevie Nicks Legend Tee</div></div>
+      <div><img src="{july4}" class="prod-img" alt="4th of July"><div class="img-caption">4th of July Couples Tee</div></div>
+    </div>
+    <div class="case-details">
+      <strong>Research:</strong> Identified trending pop-culture crossover designs using TikTok trend analysis and competitor research.<br>
+      <strong>Execution:</strong> Full cycle — design concept, supplier coordination, listing optimization, TikTok Ads (GMV Max + targeted), affiliate seeding.<br>
+      <strong>Scale:</strong> Replicated winning formula across 3 campaigns, each $30K–$60K GMV at 7–8× ROI.
+    </div>
+    <div class="shopee-relevance">
+      <strong>Shopee KAM relevance:</strong> This mirrors the merchandising & promotion planning Shopee KAMs execute — identifying market opportunities, designing campaign proposals, and hitting GMV targets. I did this independently as a seller; at Shopee I'd guide new sellers to do the same.
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="case-header">
+      <div class="case-title">TikTok Store Scale-Up · Data-Driven Growth</div>
+      <span class="case-tag tag-tiktok">TikTok Shop · Analytics · Operations</span>
+    </div>
+    <div class="case-context">Store Performance · Apr – Dec 2025</div>
+    <div class="metrics-row">
+      <div class="metric"><div class="m-val red">$140K</div><div class="m-label">GMV (Apr–Dec 2025)</div></div>
+      <div class="metric"><div class="m-val cyan">3,272</div><div class="m-label">Orders ↑13.57%</div></div>
+      <div class="metric"><div class="m-val">$43K</div><div class="m-label">Dec 2025 GMV</div></div>
+      <div class="metric"><div class="m-val cyan">+79%</div><div class="m-label">MoM Growth (Dec)</div></div>
+    </div>
+    <div class="img-row">
+      <div class="img-cell">
+        <img src="{tk140}" class="dash-img" alt="GMV Dashboard">
+        <div class="img-caption">GMV Dashboard · Apr–Dec 2025 · $140,276</div>
+      </div>
+      <div class="img-cell">
+        <img src="{tk43}" class="dash-img" alt="December 2025">
+        <div class="img-caption">December 2025 · $43,342 · +79.54% MoM</div>
+      </div>
+    </div>
+    <div class="case-details">
+      <strong>Performance monitoring:</strong> Tracked GMV, orders, CVR, and ad spend daily — identified underperforming SKUs and reallocated budget to top performers.<br>
+      <strong>Seasonal execution:</strong> Q4 push with intensified ads and holiday promotions → +79.54% GMV MoM in December.<br>
+      <strong>Risk management:</strong> 100% account health throughout — zero policy violations, controlled return rates.
+    </div>
+    <div class="shopee-relevance">
+      <strong>Shopee KAM relevance:</strong> Monitoring seller performance and preventing business risks is a core KAM responsibility. I have direct experience reading data signals early and acting before issues escalate.
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="case-header">
+      <div class="case-title">Amazon — Store Takeover, Optimization & Growth</div>
+      <span class="case-tag tag-amazon">Amazon · FBM/FBA · PPC</span>
+    </div>
+    <div class="case-context">US Market · Handmade / Toys & Gifts · Jan 2026 – Present</div>
+    <div class="metrics-row">
+      <div class="metric"><div class="m-val orange">$78.5K</div><div class="m-label">Ad Sales Q1 2026</div></div>
+      <div class="metric"><div class="m-val orange">$113.6K</div><div class="m-label">Ordered Sales YTD</div></div>
+      <div class="metric"><div class="m-val orange">#27</div><div class="m-label">Handmade Clothing Rank</div></div>
+      <div class="metric"><div class="m-val cyan">7,702</div><div class="m-label">Units Ordered YTD</div></div>
+    </div>
+    <div class="img-row">
+      <div class="img-cell">
+        <img src="{amz_snap}" class="dash-img" alt="Sales Snapshot">
+        <div class="img-caption">Sales Snapshot · Jan–Apr 2026 · $113,598</div>
+      </div>
+      <div class="img-cell">
+        <img src="{amz_asin}" class="dash-img" alt="ASIN Business Report">
+        <div class="img-caption">ASIN Business Report · Top 5 Products</div>
+      </div>
+    </div>
+    <div class="img-row">
+      <div class="img-cell">
+        <img src="{amz_ppc}" class="dash-img" alt="PPC Performance">
+        <div class="img-caption">PPC Performance · Q1 2026 · $78,484 Sales</div>
+      </div>
+      <div class="img-cell">
+        <img src="{amz_rank}" class="dash-img" alt="Best Sellers Rank">
+        <div class="img-caption">Best Sellers Rank · #27 Handmade Clothing</div>
+      </div>
+    </div>
+    <div class="case-details">
+      <strong>Takeover:</strong> Assumed full store management January 2026 — optimized listings, rebuilt PPC structure, improved organic ranking from day one.<br>
+      <strong>Results:</strong> $78,484 ad-attributed sales · 6.4M impressions · 66K clicks · 1,146 new-to-brand customers in Q1 2026. All ASINs 99%+ Buy Box.<br>
+      <strong>Ranking:</strong> Drove flagship product to #27 in Handmade Clothing & Accessories. Rating: 4.7★ (48 reviews).
+    </div>
+    <div class="shopee-relevance">
+      <strong>Shopee KAM relevance:</strong> Taking over an underoptimized store and growing it fast reflects the "New Seller Flow" challenge — helping sellers who are live but not yet performing. My Amazon experience translates directly to supporting new Shopee sellers post-onboarding.
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT I BRING ── -->
+<section>
+  <div class="section-label">What I Bring to Shopee</div>
+  <div class="services-grid">
+    <div class="service-item"><span class="check">✓</span>Seller onboarding support & platform training</div>
+    <div class="service-item"><span class="check">✓</span>Market & competitor analysis for category insights</div>
+    <div class="service-item"><span class="check">✓</span>Campaign & promotion proposal development</div>
+    <div class="service-item"><span class="check">✓</span>Performance monitoring & risk prevention</div>
+    <div class="service-item"><span class="check">✓</span>Data-driven GMV planning & KPI tracking</div>
+    <div class="service-item"><span class="check">✓</span>Seller relationship building (EN/VN)</div>
+    <div class="service-item"><span class="check">✓</span>Cross-functional coordination</div>
+    <div class="service-item"><span class="check">✓</span>Strong ownership & KPI accountability</div>
+  </div>
+</section>
+
+<!-- ── TOOLS ── -->
+<section>
+  <div class="section-label">Tools & Skills</div>
+  <div class="tools-wrap">
+    <span class="tool-badge">Excel / MOS Certified</span>
+    <span class="tool-badge">Helium 10</span>
+    <span class="tool-badge">Jungle Scout</span>
+    <span class="tool-badge">TikTok Ads Manager</span>
+    <span class="tool-badge">Amazon Ads Manager</span>
+    <span class="tool-badge">TikTok Seller Center</span>
+    <span class="tool-badge">Amazon Seller Central</span>
+    <span class="tool-badge">Data Analysis & Reporting</span>
+    <span class="tool-badge">CRM Tools</span>
+    <span class="tool-badge">English · IELTS 6.0</span>
+    <span class="tool-badge">Vietnamese · Native</span>
+  </div>
+</section>
+
+<!-- ── EDUCATION ── -->
+<section>
+  <div class="section-label">Education</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">2021 – 2024</div>
+      <div class="tl-role">Bachelor in Development Economics · National Economics University (NEU)</div>
+      <div class="tl-desc">Foundation in market analysis, business planning, and data-driven decision making</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section>
+  <div class="section-label">Contact</div>
+  <div class="contact-block">
+    <div class="contact-item"><span class="c-label">Full Name</span><span class="c-val">Doan Thu Trang</span></div>
+    <div class="contact-item"><span class="c-label">Email</span><span class="c-val"><a href="mailto:thutrang030603@gmail.com">thutrang030603@gmail.com</a></span></div>
+    <div class="contact-item"><span class="c-label">Phone / Zalo</span><span class="c-val">0357 120 833</span></div>
+    <div class="contact-item"><span class="c-label">Location</span><span class="c-val">Hanoi, Vietnam</span></div>
+    <div class="contact-item"><span class="c-label">Education</span><span class="c-val">Bachelor Economics · NEU · 2024</span></div>
+    <div class="contact-item"><span class="c-label">Available</span><span class="c-val" style="color:var(--accent);font-weight:600;">Immediately · Full-time</span></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+<div class="footer">Doan Thu Trang · Applying for KAM (New Seller Flow) Associate · Shopee Vietnam · 2026</div>
+
+</body>
+</html>"""
+
+with open("/mnt/user-data/outputs/portfolio_shopee_KAM_doan_thu_trang.html", "w") as f:
+    f.write(html)
+
+size_mb = len(html.encode()) / 1024 / 1024
+print(f"Done! {size_mb:.2f} MB")
+PYEOF
+Output
+
+Done! 1.85 MB
